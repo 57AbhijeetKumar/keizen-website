@@ -1,26 +1,203 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
+@custom-variant dark (&:is(.dark *));
+
+/*
+  Design system — Modern Industrial.
+  Dark graphite base with a "laser teal" brand accent and a sparing amber
+  signal color for numerals/badges. One palette, no light/dark toggle: this
+  is a deliberate brand choice for a premium industrial B2B site.
+*/
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #06090a;
+  --foreground: #f2f5f4;
+  --surface: #0e1416;
+  --surface-2: #141b1e;
+  --accent: #22e6b8;
+  --accent-2: #14b894;
+  --signal: #f2b84b;
+  --muted: #8fa09c;
+  --border: #1e2a2d;
+
+  --card: var(--surface);
+  --card-foreground: var(--foreground);
+  --popover: var(--surface-2);
+  --popover-foreground: var(--foreground);
+  --primary: var(--accent);
+  --primary-foreground: #04120e;
+  --secondary: var(--surface-2);
+  --secondary-foreground: var(--foreground);
+  --muted-foreground: var(--muted);
+  --accent-foreground: #04120e;
+  --destructive: oklch(0.704 0.191 22.216);
+  --input: var(--surface-2);
+  --ring: var(--accent);
+  --chart-1: var(--accent);
+  --chart-2: var(--accent-2);
+  --chart-3: var(--signal);
+  --chart-4: oklch(0.556 0 0);
+  --chart-5: oklch(0.371 0 0);
+  --radius: 0.75rem;
+  --sidebar: var(--surface);
+  --sidebar-foreground: var(--foreground);
+  --sidebar-primary: var(--accent);
+  --sidebar-primary-foreground: #04120e;
+  --sidebar-accent: var(--surface-2);
+  --sidebar-accent-foreground: var(--foreground);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--accent);
+
+  --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-fast: 150ms;
+  --duration-base: 300ms;
+  --duration-slow: 600ms;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-accent: var(--accent);
+  --color-accent-2: var(--accent-2);
+  --color-signal: var(--signal);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-sora);
+
+  --container-page: 80rem;
+
+  --text-hero: clamp(2.75rem, 2rem + 3vw, 4.75rem);
+  --text-hero--line-height: 1.05;
+  --text-hero--letter-spacing: -0.02em;
+  --text-display: clamp(2.25rem, 1.75rem + 2vw, 3.5rem);
+  --text-display--line-height: 1.1;
+  --text-display--letter-spacing: -0.015em;
+  --text-section: clamp(1.75rem, 1.5rem + 1vw, 2.5rem);
+  --text-section--line-height: 1.15;
+  --text-section--letter-spacing: -0.01em;
+
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-heading text-foreground;
+  }
+  ::selection {
+    @apply bg-accent text-primary-foreground;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  /* Brand gradient text, e.g. for one emphasized word inside a headline. */
+  .text-gradient-accent {
+    background-image: linear-gradient(
+      90deg,
+      var(--accent),
+      var(--accent-2)
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Soft radial glow used behind hero art / section dividers. Kept subtle by design. */
+  .bg-gradient-mesh {
+    background-image: radial-gradient(
+        60% 50% at 15% 0%,
+        color-mix(in oklch, var(--accent) 18%, transparent),
+        transparent 70%
+      ),
+      radial-gradient(
+        50% 40% at 85% 20%,
+        color-mix(in oklch, var(--signal) 10%, transparent),
+        transparent 70%
+      ),
+      var(--background);
+  }
+
+  /* Glassmorphism — reserved for sticky/floating chrome (navbar, modals), not body content. */
+  .glass-panel {
+    background: color-mix(in oklch, var(--surface) 55%, transparent);
+    backdrop-filter: blur(16px) saturate(140%);
+    -webkit-backdrop-filter: blur(16px) saturate(140%);
+    border: 1px solid color-mix(in oklch, var(--border) 70%, transparent);
+  }
+
+  .shadow-glow-accent {
+    box-shadow: 0 0 0 1px color-mix(in oklch, var(--accent) 40%, transparent),
+      0 8px 32px -8px color-mix(in oklch, var(--accent) 45%, transparent);
+  }
+
+  .transition-premium {
+    transition-timing-function: var(--ease-premium);
+    transition-duration: var(--duration-base);
+  }
+
+  /* Standard page-section container — used by every `components/sections/*` block. */
+  .container-page {
+    margin-inline: auto;
+    max-width: var(--container-page);
+    padding-inline: 1.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }
