@@ -75,26 +75,26 @@ export function HomeHero() {
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
-      <div className="container-page grid gap-12 py-24 sm:py-32 md:grid-cols-2 md:items-center">
-        <div className="relative overflow-hidden">
+      <div className="container-page grid gap-6 py-10 sm:py-20 lg:py-28 md:gap-12 md:grid-cols-2 md:items-center">
+        <div className="relative">
           <AnimatePresence mode="wait" initial={false}>
             <motion.div
               key={index}
-              initial={prefersReducedMotion ? false : { opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={prefersReducedMotion ? undefined : { opacity: 0, y: -12 }}
-              transition={{ duration: 0.4, ease: EASE_PREMIUM }}
+              initial={prefersReducedMotion ? false : { opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={prefersReducedMotion ? undefined : { opacity: 0 }}
+              transition={{ duration: 0.35, ease: EASE_PREMIUM }}
             >
-              <span className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-1.5 text-xs font-medium text-accent">
+              <span className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3 py-1 text-xs font-medium text-accent sm:px-4 sm:py-1.5">
                 {slide.eyebrow}
               </span>
-              <h1 className="text-hero mt-6 font-heading font-semibold tracking-tight">
+              <h1 className="mt-3 text-[1.75rem] font-heading font-semibold leading-tight tracking-tight sm:mt-4 sm:text-5xl lg:text-hero">
                 {slide.title}
               </h1>
-              <p className="mt-5 max-w-md text-lg leading-relaxed text-muted-foreground">
+              <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-muted-foreground sm:mt-4 sm:line-clamp-none sm:max-w-md sm:text-base lg:text-lg">
                 {slide.description}
               </p>
-              <div className="mt-8 flex flex-wrap gap-4">
+              <div className="mt-4 flex flex-wrap gap-3 sm:mt-6 sm:gap-4">
                 <Button size="lg" nativeButton={false} render={<Link href={slide.primaryCta.href} />}>
                   {slide.primaryCta.label}
                   <ArrowRight className="ml-1 h-4 w-4" aria-hidden="true" />
@@ -113,7 +113,7 @@ export function HomeHero() {
         </div>
 
         <div className="relative mx-auto aspect-square w-full max-w-md">
-          <div className="relative h-full w-full overflow-hidden rounded-3xl border border-border bg-surface p-8">
+          <div className="relative h-full w-full overflow-hidden rounded-3xl border border-border bg-surface p-4 sm:p-8">
             <AnimatePresence mode="wait" initial={false}>
               <motion.div
                 key={index}
@@ -135,7 +135,7 @@ export function HomeHero() {
                   alt={slide.image.alt}
                   fill
                   sizes="(min-width: 768px) 28rem, 90vw"
-                  className="object-contain"
+                  className="object-cover object-center"
                   priority={index === 0}
                 />
               </motion.div>

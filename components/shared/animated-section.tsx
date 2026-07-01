@@ -38,7 +38,7 @@ export function AnimatedSection({
       className={className}
       initial={prefersReducedMotion ? "visible" : "hidden"}
       whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={{ once: true, amount: 0.05 }}
       variants={variants}
       transition={prefersReducedMotion ? { duration: 0 } : { delay }}
     >
