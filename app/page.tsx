@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Award, Cpu, Gauge, HandCoins, LifeBuoy, ShieldCheck } from "lucide-react";
 import { HomeHero } from "@/components/sections/home-hero";
+import { StatsBar } from "@/components/sections/stats-bar";
 import { FeaturedProducts } from "@/components/sections/featured-products";
 import { TopicTeaser } from "@/components/sections/topic-teaser";
 import { WhyChooseUs } from "@/components/sections/why-choose-us";
@@ -96,17 +97,7 @@ export default function Home() {
 
       <HomeHero />
 
-      {/* Stats bar */}
-      <section className="border-b border-border bg-surface-2">
-        <div className="container-page grid grid-cols-2 gap-8 py-10 sm:grid-cols-4">
-          {STATS.map((stat) => (
-            <div key={stat.label} className="text-center">
-              <p className="text-3xl font-heading font-bold text-accent">{stat.value}</p>
-              <p className="mt-1 text-sm text-muted-foreground">{stat.label}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+      <StatsBar stats={STATS} />
 
       <FeaturedProducts products={FEATURED_PRODUCTS} priority />
 
