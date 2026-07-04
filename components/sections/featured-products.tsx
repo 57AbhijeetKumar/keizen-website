@@ -13,8 +13,8 @@ interface FeaturedProductsProps {
 
 export function FeaturedProducts({
   products,
-  heading = "Featured machines",
-  description = "A sample of our standard and Katakshi series — every machine ships with PLC-based control and on-site installation.",
+  heading = "Our machines",
+  description = "From compact inline heads to fully enclosed safety cabinets — every Kaizen machine ships with PLC-based control, on-site installation and pan-India after-sales support.",
   priority = false,
 }: FeaturedProductsProps) {
   return (

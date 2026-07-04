@@ -69,13 +69,13 @@ export default async function IndustryDetailPage({
             <p className="mt-4 text-lg text-muted-foreground">{industry.summary}</p>
           </div>
           {industry.image ? (
-            <div className="relative aspect-square rounded-3xl border border-border bg-surface p-8">
+            <div className="relative aspect-square overflow-hidden rounded-3xl border border-border">
               <Image
                 src={industry.image.url}
                 alt={industry.image.alt}
                 fill
                 priority
-                className="object-contain p-8"
+                className="object-cover"
               />
             </div>
           ) : null}

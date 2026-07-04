@@ -22,9 +22,9 @@ export default function ContactPage() {
   return (
     <main className="flex-1">
       <PageHero
-        eyebrow="Contact"
-        title="Let's talk about your application"
-        description="Share your material, part size and volume — our team usually responds the same business day."
+        eyebrow="Contact Us"
+        title="Get a quote within 24 hours."
+        description="Tell us your application, material, part size and production volume. Our team responds the same business day — usually faster. No obligation, no sales pressure."
         breadcrumbs={[{ label: "Contact", href: "/contact" }]}
       />
 
@@ -34,6 +34,7 @@ export default function ContactPage() {
           <div className="flex flex-col gap-8">
             <div className="rounded-2xl border border-border bg-surface p-6">
               <h2 className="font-heading text-lg font-semibold">Send a message</h2>
+              <p className="mt-1 text-sm text-muted-foreground">We respond within one business day — typically the same day.</p>
               <div className="mt-4">
                 <ContactForm />
               </div>

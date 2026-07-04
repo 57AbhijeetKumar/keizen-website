@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cpu, Gauge, LifeBuoy, ShieldCheck } from "lucide-react";
+import { Award, Cpu, Gauge, HandCoins, LifeBuoy, ShieldCheck } from "lucide-react";
 import { HomeHero } from "@/components/sections/home-hero";
 import { FeaturedProducts } from "@/components/sections/featured-products";
 import { TopicTeaser } from "@/components/sections/topic-teaser";
@@ -18,36 +18,55 @@ import { siteConfig, siteMeta } from "@/lib/site-config";
 import { buildMetadata } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Kaizen Laser | Industrial Laser Marking, Engraving & Traceability Systems",
+  title: "Laser Marking Machine Manufacturer in India | Kaizen Laser",
   description:
-    "Kaizen Laser designs and manufactures industrial laser marking, engraving, welding, cutting and traceability systems — PLC-controlled, Class 1 safe, built for high-volume production.",
+    "Kaizen Laser manufactures industrial laser marking, engraving, welding, cutting and traceability systems in Noida, India — PLC-controlled, Class 1 safe, built for high-volume production lines.",
   path: "/",
 });
 
+const STATS = [
+  { value: "500+", label: "Machines Installed" },
+  { value: "50+", label: "Customers Served" },
+  { value: "9", label: "Machine Models" },
+  { value: "Pan-India", label: "Service Network" },
+];
+
 const WHY_CHOOSE_US_ITEMS = [
   {
-    icon: Cpu,
-    title: "PLC-based control",
+    icon: Award,
+    title: "German & Singaporean Laser Modules",
     description:
-      "Our machines run on industrial PLC control rather than a bare PC link, so your line isn't dependent on a single computer staying online.",
+      "We don't cut corners on the laser source. Pluto and Mercury run German-standard modules; Venus runs a Singaporean-standard module — both with documented 50,000+ hour rated lifespans and proven in Indian production conditions.",
   },
   {
     icon: ShieldCheck,
-    title: "Class 1 laser safety",
+    title: "Fully Enclosed Class 1 Safety",
     description:
-      "Standard machines are fully enclosed Class 1 systems — safe for operators with no extra protective equipment required.",
+      "Every standard enclosed machine meets Class 1 laser safety requirements. Your operators work without laser PPE, your HSE team isn't called, and your production line stays compliant.",
+  },
+  {
+    icon: Cpu,
+    title: "PLC Control — Not PC Dependent",
+    description:
+      "An industrial PLC runs the machine, not a laptop sitting on the production floor. Your line keeps marking even when the office network is down or an operator's PC is restarted.",
   },
   {
     icon: Gauge,
-    title: "Built for high volume",
+    title: "Poke-Yoke & Traceability Ready",
     description:
-      "From single-part marking to continuous production lines, our systems are sized to your throughput, not the other way around.",
+      "Mercury and KAI-TRACK are engineered for automotive-level error-proofing — part-presence sensor, door interlock, scan-verify-mark cycle. One system covers safety, marking and traceability.",
   },
   {
     icon: LifeBuoy,
-    title: "Zero-downtime support",
+    title: "Service Across India",
     description:
-      "Dedicated service engineers and spare-part availability mean a breakdown doesn't have to stall your production line.",
+      "Service engineers in Delhi-NCR, Pune, Bengaluru, Chennai and Tata Nagar. Same-day response for critical breakdowns — because a stalled production line costs more than the machine.",
+  },
+  {
+    icon: HandCoins,
+    title: "Made in India, Priced for India",
+    description:
+      "We manufacture in Noida and pass that cost advantage to you. Imported laser quality at a fraction of the import price — no currency risk, no long freight lead times, no overseas warranty headaches.",
   },
 ];
 
@@ -77,19 +96,31 @@ export default function Home() {
 
       <HomeHero />
 
+      {/* Stats bar */}
+      <section className="border-b border-border bg-surface-2">
+        <div className="container-page grid grid-cols-2 gap-8 py-10 sm:grid-cols-4">
+          {STATS.map((stat) => (
+            <div key={stat.label} className="text-center">
+              <p className="text-3xl font-heading font-bold text-accent">{stat.value}</p>
+              <p className="mt-1 text-sm text-muted-foreground">{stat.label}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       <FeaturedProducts products={FEATURED_PRODUCTS} priority />
 
       <TopicTeaser
         heading="Applications"
-        description="One platform, many processes — marking, engraving, welding and more."
+        description="Marking, engraving, welding, cutting and cleaning — one manufacturer, every process."
         items={FEATURED_APPLICATIONS}
         hrefBase="/applications"
         viewAllHref="/applications"
       />
 
       <TopicTeaser
-        heading="Industries we serve"
-        description="Built for the tolerances and compliance needs of regulated production."
+        heading="Industries We Serve"
+        description="Built for the tolerances, traceability requirements and compliance standards of regulated production."
         items={FEATURED_INDUSTRIES}
         hrefBase="/industries"
         viewAllHref="/industries"
@@ -97,17 +128,17 @@ export default function Home() {
 
       <WhyChooseUs
         heading="Why manufacturers choose Kaizen"
-        description="A laser system is only as good as what's behind it — controls, safety, and support."
+        description="A laser system is only as good as its source, its controls, its safety, and the team behind it."
         items={WHY_CHOOSE_US_ITEMS}
       />
 
       <CtaBanner
-        heading="Talk to a laser specialist"
-        description="Tell us your material and application — we'll recommend the right system and walk you through specs, pricing and lead time."
+        heading="Get the right machine for your application."
+        description="Send us your part material, size and production volume — we'll recommend the right system, explain the specs, and give you a price within 24 hours. No obligation."
         primaryHref="/contact"
-        primaryLabel="Get a Quote"
+        primaryLabel="Request a Free Consultation"
         secondaryHref="/downloads"
-        secondaryLabel="Browse Brochures"
+        secondaryLabel="Download Product Catalog"
       />
 
       <section className="container-page py-16 sm:py-20">
@@ -116,7 +147,7 @@ export default function Home() {
             Frequently asked questions
           </h2>
           <p className="mt-2 text-muted-foreground">
-            Common questions about our machines, safety and support.
+            Common questions from buyers about our machines, safety, integration and support.
           </p>
         </AnimatedSection>
         <div className="mx-auto mt-8 max-w-2xl">

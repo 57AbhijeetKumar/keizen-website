@@ -26,25 +26,25 @@ export const PRODUCTS_MENU: MegaMenu = {
     {
       heading: "Kaizen Standard Series",
       links: [
-        { label: "Pluto", href: "/products/pluto-laser-marking-machine", description: "Entry fiber laser marking machine" },
-        { label: "Venus", href: "/products/venus-laser-marking-machine", description: "Mid-range fiber laser marking machine" },
-        { label: "Neptune", href: "/products/neptune-laser-marking-machine", description: "High-power fiber laser marking machine" },
+        { label: "Pluto", href: "/products/pluto-laser-marking-machine", description: "Fiber laser marking — 20W to 100W" },
+        { label: "Venus", href: "/products/venus-laser-marking-machine", description: "UV laser marking — 3W to 15W" },
+        { label: "Neptune", href: "/products/neptune-laser-marking-machine", description: "CO₂ laser for non-metals — 20W to 55W" },
       ],
     },
     {
-      heading: "Standalone Systems",
+      heading: "Specialised Systems",
       links: [
-        { label: "Mercury", href: "/products/mercury-laser-marking-machine", description: "Compact desktop marking system" },
-        { label: "Jupiter", href: "/products/jupiter-laser-marking-machine", description: "Heavy-duty industrial marking system" },
-        { label: "Mars", href: "/products/mars-dot-peen-marking-machine", description: "Dot peen marking machine" },
+        { label: "Mercury", href: "/products/mercury-laser-marking-machine", description: "Fully enclosed safety cabinet with poke-yoke" },
+        { label: "Jupiter", href: "/products/jupiter-laser-marking-machine", description: "Ultra-compact head for robot & inline" },
+        { label: "Mars", href: "/products/mars-dot-peen-marking-machine", description: "Pneumatic dot peen — stationary & portable" },
       ],
     },
     {
-      heading: "Katakshi Series",
+      heading: "Katashi Series",
       links: [
-        { label: "Kai-Weld", href: "/products/kai-weld-laser-welding", description: "Laser welding systems" },
-        { label: "Kai-Cut", href: "/products/kai-cut-laser-cutting", description: "Laser cutting systems" },
-        { label: "Kai-Clean", href: "/products/kai-clean-laser-cleaning", description: "Laser cleaning systems" },
+        { label: "Kai-Weld", href: "/products/kai-weld-laser-welding", description: "Laser welding — 1 kW to 6 kW" },
+        { label: "Kai-Cut", href: "/products/kai-cut-laser-cutting", description: "Laser cutting — 1 kW to 6 kW" },
+        { label: "Kai-Clean", href: "/products/kai-clean-laser-cleaning", description: "Laser rust, paint & oxide removal" },
       ],
     },
   ],

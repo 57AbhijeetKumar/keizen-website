@@ -19,22 +19,31 @@ interface HeroSlide {
 
 const HERO_SLIDES: HeroSlide[] = [
   {
-    image: { url: "/images/real/machine-1.webp", alt: "Kaizen fiber laser marking machine" },
-    eyebrow: "Class 1 Laser Safety Certified",
-    title: "Precision Laser Marking, Engraving & Traceability",
+    image: { url: "/images/real/hero-laser.webp", alt: "Kaizen laser optics focusing a precision beam onto a metal part" },
+    eyebrow: "Manufactured in India · Installed Across Industries",
+    title: "Laser Marking & Traceability Systems Built for Production",
     description:
-      "Kaizen Laser builds industrial fiber laser systems that mark, engrave and track parts with permanent, high-contrast accuracy — built for metals, plastics and high-volume production lines.",
-    primaryCta: { label: "Get a Quote", href: "/contact" },
-    secondaryCta: { label: "View Machines", href: "/products" },
+      "From standalone workstations to fully integrated inline traceability — Kaizen machines mark metals, plastics and non-metals at production speed with PLC control, poke-yoke and KAI-TRACK software built in.",
+    primaryCta: { label: "Request a Demo", href: "/contact" },
+    secondaryCta: { label: "View Our Range", href: "/products" },
   },
   {
-    image: { url: "/images/real/machine-2.webp", alt: "Kaizen enclosed laser marking workstation" },
-    eyebrow: "Class 1 Enclosed Cabinet",
-    title: "Enclosed Workstations, Built for Production Lines",
+    image: { url: "/images/real/products/mercury.webp", alt: "Kaizen Mercury fully enclosed safety-cabinet laser marking machine with poke-yoke" },
+    eyebrow: "Mercury Series · Safety-First Enclosed Cabinet",
+    title: "Full Enclosure. Poke-Yoke. KAI-TRACK. All Standard.",
     description:
-      "For lines that need full operator safety and PLC integration, our enclosed workstation platform drops into an existing process without separate fume or beam containment.",
-    primaryCta: { label: "Get a Quote", href: "/contact" },
-    secondaryCta: { label: "View Machines", href: "/products" },
+      "Mercury is built for lines where a wrong part cannot pass through. Safety curtains, door interlock, part-presence sensor and scan-verify-mark cycle — every safety requirement met without a separate integration project.",
+    primaryCta: { label: "View Mercury", href: "/products/mercury-laser-marking-machine" },
+    secondaryCta: { label: "Get a Quote", href: "/contact" },
+  },
+  {
+    image: { url: "/images/real/install-4.webp", alt: "Kaizen inline laser marking system with conveyor installed at customer production line" },
+    eyebrow: "Installed Across India · Pan-India Service Network",
+    title: "Customised Systems. Installed at Your Line. Supported Everywhere.",
+    description:
+      "Every Kaizen installation is configured to your line — part size, conveyor speed, PLC protocol and traceability requirement. Service engineers in Delhi-NCR, Pune, Bengaluru, Chennai and Tata Nagar.",
+    primaryCta: { label: "Talk to a Specialist", href: "/contact" },
+    secondaryCta: { label: "Traceability Solutions", href: "/traceability" },
   },
 ];
 
@@ -113,7 +122,7 @@ export function HomeHero() {
         </div>
 
         <div className="relative mx-auto aspect-square w-full max-w-md">
-          <div className="relative h-full w-full overflow-hidden rounded-3xl border border-border bg-surface p-4 sm:p-8">
+          <div className="relative h-full w-full overflow-hidden rounded-3xl border border-border bg-zinc-950">
             <AnimatePresence mode="wait" initial={false}>
               <motion.div
                 key={index}
@@ -135,7 +144,7 @@ export function HomeHero() {
                   alt={slide.image.alt}
                   fill
                   sizes="(min-width: 768px) 28rem, 90vw"
-                  className="object-cover object-center"
+                  className="object-contain"
                   priority={index === 0}
                 />
               </motion.div>

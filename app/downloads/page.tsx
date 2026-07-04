@@ -25,9 +25,10 @@ export default function DownloadsPage() {
         <div className="mx-auto w-full max-w-lg">
           <DownloadCard
             download={{
-              title: "Kaizen Laser & Automation — Company Brochure",
+              title: "Kaizen Laser & Automation — Product Catalog 2026",
               fileUrl: "/api/downloads/brochure",
               fileType: "pdf",
+              sizeLabel: "16 MB",
             }}
           />
         </div>

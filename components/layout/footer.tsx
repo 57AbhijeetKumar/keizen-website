@@ -14,10 +14,11 @@ export function Footer() {
       <div className="container-page grid grid-cols-1 gap-12 py-16 lg:grid-cols-[1.3fr_2fr]">
         <div className="flex flex-col gap-4">
           <Logo />
-          <p className="text-sm font-medium text-accent">Mark with Grace</p>
+          <p className="text-sm font-medium text-accent">Mark Permanently. Trace Completely.</p>
           <p className="max-w-sm text-sm text-muted-foreground">
             {siteConfig.legalName} designs and manufactures industrial laser
-            marking, engraving, welding, cutting and traceability systems.
+            marking, engraving, welding, cutting and traceability systems —
+            Made in India, installed across industries.
           </p>
 
           <ul className="flex flex-col gap-2 text-sm text-muted-foreground">
@@ -90,7 +91,7 @@ export function Footer() {
         <p>
           © {year} {siteConfig.legalName}. All rights reserved.
         </p>
-        <p>Built with Next.js.</p>
+        <p>Proudly Made in India.</p>
       </div>
     </footer>
   );

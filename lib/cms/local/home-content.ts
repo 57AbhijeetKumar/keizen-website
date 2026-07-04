@@ -14,9 +14,9 @@ import { ALL_FAQS } from "@/lib/cms/local/faqs";
 
 const FEATURED_PRODUCT_SLUGS = [
   "pluto-laser-marking-machine",
-  "venus-laser-marking-machine",
   "mercury-laser-marking-machine",
   "jupiter-laser-marking-machine",
+  "mars-dot-peen-marking-machine",
   "kai-weld-laser-welding",
   "kai-cut-laser-cutting",
 ];

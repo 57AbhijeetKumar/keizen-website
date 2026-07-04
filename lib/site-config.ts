@@ -8,7 +8,7 @@ import type { CompanySettings } from "@/lib/cms/types";
  */
 export const siteConfig: CompanySettings = {
   legalName: "Kaizen Laser and Automation",
-  address: "C-82, Ground Floor, Noida Sector-63, Gautam Buddh Nagar, UP 201301",
+  address: "Plot No. E-86, Noida Sector-63, Noida, Gautam Budh Nagar, UP 201301",
   phoneNumbers: ["+91 79066 13074", "+91 77199 66792"],
   emails: ["info@kaizenlaser.in", "sales@kaizenlaser.in"],
   whatsappNumber: "+91 77199 66792",

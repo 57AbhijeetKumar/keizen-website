@@ -5,7 +5,8 @@ export function DownloadCard({ download }: { download: DownloadAsset }) {
   return (
     <a
       href={download.fileUrl}
-      download
+      target="_blank"
+      rel="noopener noreferrer"
       className="group flex items-center gap-4 rounded-2xl border border-border bg-surface p-5 transition-premium hover:border-accent/50"
     >
       <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-accent/10 text-accent">
