@@ -19,11 +19,10 @@ export const siteConfig: CompanySettings = {
     { day: "Monday – Saturday", hours: "10:00 AM – 7:00 PM" },
     { day: "Sunday", hours: "Closed" },
   ],
-  // Google's "Share > Embed a map > Place" snippet for the verified "Kaizen
-  // Laser And Automation" Place ID — shows only this one pin, not nearby
-  // businesses (unlike a generic `?q=<address>&output=embed` search embed).
+  // Pinned from the owner's live GPS location shared via maps.app.goo.gl —
+  // exact office coordinates: 28.621238, 77.386262 (Noida Sector-63).
   mapEmbedUrl:
-    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.5056344671707!2d77.38121249999999!3d28.614604099999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce506bc796b0d%3A0x3b23304962d28c!2sKaizen%20Laser%20And%20Automation!5e0!3m2!1sen!2sin!4v1744113587407!5m2!1sen!2sin",
+    "https://maps.google.com/maps?q=28.621238,77.386262&z=17&output=embed",
 };
 
 export const siteMeta = {
