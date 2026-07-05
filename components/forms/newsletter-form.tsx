@@ -58,8 +58,9 @@ export function NewsletterForm() {
         <Input
           id="newsletter-email"
           type="email"
-          placeholder="you@company.com"
+          placeholder="name@company.com"
           autoComplete="email"
+          maxLength={254}
           aria-invalid={Boolean(errors.email)}
           {...register("email")}
         />

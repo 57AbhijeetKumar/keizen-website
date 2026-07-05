@@ -96,20 +96,54 @@ export function LeadForm({
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4" noValidate>
       <FormField id="name" label="Your name" error={errors.name?.message}>
-        <Input id="name" autoComplete="name" {...register("name")} />
+        <Input
+          id="name"
+          autoComplete="name"
+          placeholder="Rahul Sharma"
+          maxLength={80}
+          aria-invalid={Boolean(errors.name)}
+          {...register("name")}
+        />
       </FormField>
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <FormField id="email" label="Email address" error={errors.email?.message}>
-          <Input id="email" type="email" autoComplete="email" {...register("email")} />
+          <Input
+            id="email"
+            type="email"
+            autoComplete="email"
+            placeholder="name@company.com"
+            aria-invalid={Boolean(errors.email)}
+            {...register("email")}
+          />
         </FormField>
-        <FormField id="phone" label="Phone number" error={errors.phone?.message}>
-          <Input id="phone" type="tel" autoComplete="tel" {...register("phone")} />
+        <FormField
+          id="phone"
+          label="Phone number"
+          error={errors.phone?.message}
+          hint="10-digit Indian mobile number"
+        >
+          <Input
+            id="phone"
+            type="tel"
+            autoComplete="tel"
+            placeholder="98765 43210"
+            maxLength={15}
+            aria-invalid={Boolean(errors.phone)}
+            {...register("phone")}
+          />
         </FormField>
       </div>
 
       <FormField id="message" label="Message" error={errors.message?.message}>
-        <Textarea id="message" rows={5} {...register("message")} />
+        <Textarea
+          id="message"
+          rows={5}
+          placeholder="Tell us about your application — material, part size, production volume, and any specific requirements."
+          maxLength={1000}
+          aria-invalid={Boolean(errors.message)}
+          {...register("message")}
+        />
       </FormField>
 
       {/* Honeypot — visually hidden, not display:none (bots that respect that are rare,
