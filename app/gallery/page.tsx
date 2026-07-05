@@ -5,7 +5,7 @@ import { buildMetadata } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = buildMetadata({
   title: "Gallery | Kaizen Laser",
-  description: "Real installations, marking samples and SPM machines from Kaizen Laser and Automation.",
+  description: "Real installations, marking samples and machines from Kaizen Laser and Automation.",
   path: "/gallery",
 });
 
@@ -23,14 +23,6 @@ const MARKING_IMAGES = [
   { url: "/images/real/marking-sample-3.webp", alt: "Laser-marked part code on a metal component" },
   { url: "/images/real/marking-sample-4.webp", alt: "Laser-marked barcode and lot number on a metal surface" },
   { url: "/images/real/marking-sample-5.webp", alt: "Laser-engraved identification code on turned metal part" },
-];
-
-const SPM_IMAGES = [
-  { url: "/images/real/spm/spm-1.webp", alt: "Kaizen special purpose machine — front view" },
-  { url: "/images/real/spm/spm-2.webp", alt: "Kaizen SPM CAD render — rotary laser marking station" },
-  { url: "/images/real/spm/spm-3.webp", alt: "Kaizen SPM — enclosed laser station with rotary table" },
-  { url: "/images/real/spm/spm-4.webp", alt: "Kaizen SPM — compact laser marking station" },
-  { url: "/images/real/spm/spm-5.webp", alt: "Kaizen SPM — custom laser automation cell" },
 ];
 
 const CONVEYOR_IMAGES = [
@@ -63,11 +55,6 @@ export default function GalleryPage() {
       <section className="container-page py-16 sm:py-20 border-t border-border">
         <h2 className="text-section font-heading font-semibold mb-8">Marking Samples</h2>
         <GalleryGrid images={MARKING_IMAGES} />
-      </section>
-
-      <section className="container-page py-16 sm:py-20 border-t border-border">
-        <h2 className="text-section font-heading font-semibold mb-8">Special Purpose Machines (SPMs)</h2>
-        <GalleryGrid images={SPM_IMAGES} />
       </section>
 
       <section className="container-page py-16 sm:py-20 border-t border-border">
