@@ -4,14 +4,6 @@ import { LEAD_SOURCES, type LeadSource } from "@/lib/cms/types";
 export const leadSourceSchema = z.enum(LEAD_SOURCES);
 export type { LeadSource };
 
-// Strips spaces, dashes, brackets and handles +91 / 91 / 0 prefixes.
-function normalisePhone(val: string): string {
-  const digits = val.replace(/\D/g, "");
-  if (digits.length === 12 && digits.startsWith("91")) return digits.slice(2);
-  if (digits.length === 11 && digits.startsWith("0")) return digits.slice(1);
-  return digits;
-}
-
 // Fields the visitor actually fills in. Used for client-side (useForm) validation.
 export const leadContactFieldsSchema = z.object({
   name: z
@@ -26,10 +18,10 @@ export const leadContactFieldsSchema = z.object({
 
   phone: z
     .string()
-    .check(z.minLength(1, { error: "Phone number is required" }))
-    .refine(
-      (val) => /^[6-9]\d{9}$/.test(normalisePhone(val)),
-      { error: "Enter a valid 10-digit Indian mobile number (e.g. 98765 43210)" }
+    .check(
+      z.minLength(10, { error: "Enter your 10-digit mobile number" }),
+      z.maxLength(10, { error: "Mobile number cannot exceed 10 digits" }),
+      z.regex(/^[6-9]\d{9}$/, { error: "Must start with 6, 7, 8, or 9 — enter a valid Indian mobile number" })
     ),
 
   message: z

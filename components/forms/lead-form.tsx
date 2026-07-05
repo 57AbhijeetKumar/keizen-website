@@ -121,15 +121,22 @@ export function LeadForm({
           id="phone"
           label="Phone number"
           error={errors.phone?.message}
-          hint="10-digit Indian mobile number"
+          hint="10-digit mobile number"
         >
           <Input
             id="phone"
             type="tel"
+            inputMode="numeric"
             autoComplete="tel"
-            placeholder="98765 43210"
-            maxLength={15}
+            placeholder="9876543210"
+            maxLength={10}
             aria-invalid={Boolean(errors.phone)}
+            onInput={(e) => {
+              // Strip every non-digit and cap at 10 characters as the user types
+              e.currentTarget.value = e.currentTarget.value
+                .replace(/\D/g, "")
+                .slice(0, 10);
+            }}
             {...register("phone")}
           />
         </FormField>
