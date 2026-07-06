@@ -27,7 +27,9 @@ export const siteConfig: CompanySettings = {
 
 export const siteMeta = {
   name: "Kaizen Laser",
-  url: "https://www.kaizenlaser.in",
+  // Using Vercel URL until a custom domain is purchased and connected.
+  // Once the domain is ready: update this one value and redeploy.
+  url: "https://keizen-website.vercel.app",
   description:
     "Kaizen Laser designs and manufactures industrial laser marking, engraving, welding, cutting and traceability systems.",
 };
