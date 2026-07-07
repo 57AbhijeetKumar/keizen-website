@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { CheckCircle, HandCoins, LifeBuoy, Lightbulb, ShieldCheck, Sparkles, Truck } from "lucide-react";
 import { PageHero } from "@/components/sections/page-hero";
 import { ValueProps } from "@/components/sections/value-props";
@@ -118,6 +119,30 @@ export default function AboutPage() {
               </p>
             </div>
           </AnimatedSection>
+        </div>
+      </section>
+
+      {/* Team & facility photos */}
+      <section className="container-page pb-16 sm:pb-20">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
+            <Image
+              src="/images/real/team-machines.jpg"
+              alt="Kaizen Laser team with a batch of 8 Pluto machines ready for dispatch from the Noida manufacturing unit"
+              fill
+              className="object-cover"
+              sizes="(max-width: 640px) 100vw, 50vw"
+            />
+          </div>
+          <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
+            <Image
+              src="/images/real/exhibition-booth.jpg"
+              alt="Kaizen Mercury laser marking machine on display at an industry exhibition"
+              fill
+              className="object-cover"
+              sizes="(max-width: 640px) 100vw, 50vw"
+            />
+          </div>
         </div>
       </section>
 

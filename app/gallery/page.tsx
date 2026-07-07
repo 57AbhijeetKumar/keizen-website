@@ -10,11 +10,9 @@ export const metadata: Metadata = buildMetadata({
 });
 
 const INSTALL_IMAGES = [
-  { url: "/images/real/install-1.webp", alt: "Kaizen laser machine installed at customer production site" },
-  { url: "/images/real/install-2.webp", alt: "Kaizen laser marking system at customer facility" },
-  { url: "/images/real/install-3.webp", alt: "Kaizen laser system in customer production line" },
-  { url: "/images/real/install-4.webp", alt: "Kaizen inline laser marking system with conveyor at customer site" },
-  { url: "/images/real/install-5.webp", alt: "Kaizen Mercury laser marking machine at customer facility" },
+  { url: "/images/real/installs/install-spm-customer.jpg", alt: "Kaizen SPM laser marking machine installed at customer production site — white cabinet with Mitsubishi HMI and operator workstations" },
+  { url: "/images/real/installs/install-mercury-customer.jpg", alt: "Kaizen Mercury enclosed laser marking machine installed at customer electronics production facility" },
+  { url: "/images/real/installs/install-desk-laser.jpg", alt: "Kaizen laser marking machine with S&A industrial chiller installed and running at customer site" },
 ];
 
 const MARKING_IMAGES = [
@@ -23,6 +21,12 @@ const MARKING_IMAGES = [
   { url: "/images/real/marking-sample-3.webp", alt: "Laser-marked part code on a metal component" },
   { url: "/images/real/marking-sample-4.webp", alt: "Laser-marked barcode and lot number on a metal surface" },
   { url: "/images/real/marking-sample-5.webp", alt: "Laser-engraved identification code on turned metal part" },
+];
+
+const WORKSHOP_IMAGES = [
+  { url: "/images/real/team-machines.jpg", alt: "Kaizen Laser team with a batch of 8 Pluto laser marking machines ready for dispatch from the Noida manufacturing unit" },
+  { url: "/images/real/dispatch-crate.jpg", alt: "Kaizen laser machine packed in wooden crate marked Fragile — dispatched via truck for pan-India delivery" },
+  { url: "/images/real/exhibition-booth.jpg", alt: "Kaizen Mercury laser marking machine on display at industry exhibition — Kaizen Laser And Automation booth" },
 ];
 
 const CONVEYOR_IMAGES = [
@@ -55,6 +59,11 @@ export default function GalleryPage() {
       <section className="container-page py-16 sm:py-20 border-t border-border">
         <h2 className="text-section font-heading font-semibold mb-8">Marking Samples</h2>
         <GalleryGrid images={MARKING_IMAGES} />
+      </section>
+
+      <section className="container-page py-16 sm:py-20 border-t border-border">
+        <h2 className="text-section font-heading font-semibold mb-8">Our Workshop & Dispatch</h2>
+        <GalleryGrid images={WORKSHOP_IMAGES} />
       </section>
 
       <section className="container-page py-16 sm:py-20 border-t border-border">
