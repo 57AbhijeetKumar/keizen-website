@@ -5,6 +5,7 @@ import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { WhatsAppButton } from "@/components/shared/whatsapp-button";
 import { BackToTop } from "@/components/shared/back-to-top";
+import { AiChat } from "@/components/shared/ai-chat";
 import { siteConfig, siteMeta } from "@/lib/site-config";
 import { buildMetadata } from "@/lib/seo/metadata";
 import "./globals.css";
@@ -55,6 +56,7 @@ export default function RootLayout({
           {children}
           <Footer />
           <WhatsAppButton phoneNumber={siteConfig.whatsappNumber} />
+          <AiChat />
           <BackToTop />
         </MotionConfig>
       </body>
