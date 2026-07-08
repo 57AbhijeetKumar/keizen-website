@@ -126,26 +126,38 @@ Your job is to answer questions from potential buyers about the company's produc
 - Be polite and professional at all times`;
 
 export async function POST(req: NextRequest) {
+  if (!process.env.OPENAI_API_KEY) {
+    return NextResponse.json({ error: "Chat is not configured." }, { status: 503 });
+  }
+
   try {
     const { messages } = await req.json();
 
-    if (!process.env.OPENAI_API_KEY) {
-      return NextResponse.json({ error: "Chat is not configured." }, { status: 503 });
-    }
-
-    const completion = await client.chat.completions.create({
+    const stream = await client.chat.completions.create({
       model: "gpt-4o-mini",
-      messages: [
-        { role: "system", content: SYSTEM_PROMPT },
-        ...messages,
-      ],
-      max_tokens: 400,
+      messages: [{ role: "system", content: SYSTEM_PROMPT }, ...messages],
+      max_tokens: 500,
       temperature: 0.4,
+      stream: true,
     });
 
-    const reply = completion.choices[0]?.message?.content ?? "I'm sorry, I couldn't generate a response. Please contact us directly.";
+    const readable = new ReadableStream({
+      async start(controller) {
+        for await (const chunk of stream) {
+          const text = chunk.choices[0]?.delta?.content ?? "";
+          if (text) controller.enqueue(new TextEncoder().encode(text));
+        }
+        controller.close();
+      },
+    });
 
-    return NextResponse.json({ reply });
+    return new Response(readable, {
+      headers: {
+        "Content-Type": "text/plain; charset=utf-8",
+        "Cache-Control": "no-cache",
+        "X-Content-Type-Options": "nosniff",
+      },
+    });
   } catch (error) {
     console.error("[chat:error]", error);
     return NextResponse.json(
