@@ -145,7 +145,7 @@ export function AiChat() {
       <button
         onClick={() => setOpen((o) => !o)}
         aria-label={open ? "Close AI chat" : "Open AI chat"}
-        className="fixed bottom-6 left-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-accent text-accent-foreground shadow-lg transition hover:opacity-90 active:scale-95"
+        className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-accent text-accent-foreground shadow-lg transition hover:opacity-90 active:scale-95"
       >
         {open ? (
           <X className="h-6 w-6" aria-hidden="true" />
