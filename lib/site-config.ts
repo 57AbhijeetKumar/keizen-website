@@ -19,10 +19,10 @@ export const siteConfig: CompanySettings = {
     { day: "Monday – Saturday", hours: "10:00 AM – 7:00 PM" },
     { day: "Sunday", hours: "Closed" },
   ],
-  // Pinned from the owner's live GPS location shared via maps.app.goo.gl —
-  // exact office coordinates: 28.621238, 77.386262 (Noida Sector-63).
+  // Official Google Maps embed tied to the verified business listing —
+  // shows "KAIZEN LASER AND AUTOMATION" on the pin.
   mapEmbedUrl:
-    "https://maps.google.com/maps?q=28.621238,77.386262&z=17&output=embed",
+    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d875.5711430655182!2d77.38554987342127!3d28.621232045931496!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce506bc796b0d%3A0x3b23304962d28c!2sKAIZEN%20LASER%20AND%20AUTOMATION!5e0!3m2!1sen!2sin!4v1784005561511!5m2!1sen!2sin",
 };
 
 export const siteMeta = {
