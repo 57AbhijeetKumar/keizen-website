@@ -136,7 +136,7 @@ export interface CompanySettings {
   phoneNumbers: string[];
   emails: string[];
   whatsappNumber: string;
-  socialLinks: Partial<Record<"linkedin" | "instagram" | "facebook" | "twitter", string>>;
+  socialLinks: Partial<Record<"linkedin" | "youtube" | "instagram" | "facebook" | "twitter", string>>;
   businessHours: { day: string; hours: string }[];
   mapEmbedUrl?: string;
 }

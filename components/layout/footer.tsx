@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
-import { LinkedInIcon } from "@/components/shared/icons";
+import { LinkedInIcon, YouTubeIcon } from "@/components/shared/icons";
 import { Logo } from "@/components/layout/logo";
 import { NewsletterForm } from "@/components/forms/newsletter-form";
 import { FOOTER_LINK_GROUPS } from "@/lib/navigation";
@@ -40,17 +40,30 @@ export function Footer() {
             </li>
           </ul>
 
-          {siteConfig.socialLinks.linkedin ? (
-            <a
-              href={siteConfig.socialLinks.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Kaizen Laser on LinkedIn"
-              className="flex h-9 w-9 items-center justify-center rounded-full border border-border text-muted-foreground transition-premium hover:border-accent/50 hover:text-accent"
-            >
-              <LinkedInIcon className="h-4 w-4" />
-            </a>
-          ) : null}
+          <div className="flex gap-2">
+            {siteConfig.socialLinks.linkedin ? (
+              <a
+                href={siteConfig.socialLinks.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Kaizen Laser on LinkedIn"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-border text-muted-foreground transition-premium hover:border-accent/50 hover:text-accent"
+              >
+                <LinkedInIcon className="h-4 w-4" />
+              </a>
+            ) : null}
+            {siteConfig.socialLinks.youtube ? (
+              <a
+                href={siteConfig.socialLinks.youtube}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Kaizen Laser on YouTube"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-border text-muted-foreground transition-premium hover:border-red-500/50 hover:text-red-500"
+              >
+                <YouTubeIcon className="h-4 w-4" />
+              </a>
+            ) : null}
+          </div>
         </div>
 
         <div className="grid grid-cols-2 gap-8 sm:grid-cols-4">

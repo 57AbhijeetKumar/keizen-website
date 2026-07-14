@@ -14,6 +14,7 @@ export const siteConfig: CompanySettings = {
   whatsappNumber: "+91 77199 66792",
   socialLinks: {
     linkedin: "https://www.linkedin.com/company/kaizenlaserandautomation/",
+    youtube: "https://www.youtube.com/@KaizenLaserandAutomation",
   },
   businessHours: [
     { day: "Monday – Saturday", hours: "10:00 AM – 7:00 PM" },
