@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Award, Cpu, Gauge, HandCoins, LifeBuoy, ShieldCheck } from "lucide-react";
 import { HomeHero } from "@/components/sections/home-hero";
 import { StatsBar } from "@/components/sections/stats-bar";
+import { VideoShowreel } from "@/components/sections/video-showreel";
 import { FeaturedProducts } from "@/components/sections/featured-products";
 import { TopicTeaser } from "@/components/sections/topic-teaser";
 import { WhyChooseUs } from "@/components/sections/why-choose-us";
@@ -98,6 +99,7 @@ export default function Home() {
       <HomeHero />
 
       <StatsBar stats={STATS} />
+      <VideoShowreel />
 
       <FeaturedProducts products={FEATURED_PRODUCTS} priority />
 
