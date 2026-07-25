@@ -130,7 +130,7 @@
   h2,
   h3,
   h4 {
-    @apply font-heading text-foreground;
+    @apply font-heading text-foreground font-bold;
   }
   ::selection {
     @apply bg-accent text-primary-foreground;

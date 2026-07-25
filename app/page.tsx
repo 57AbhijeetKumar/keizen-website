@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Award, Cpu, Gauge, HandCoins, LifeBuoy, ShieldCheck } from "lucide-react";
 import { HomeHero } from "@/components/sections/home-hero";
 import { StatsBar } from "@/components/sections/stats-bar";
+import { TrustStrip } from "@/components/sections/trust-strip";
 import { FeaturedProducts } from "@/components/sections/featured-products";
 import { TopicTeaser } from "@/components/sections/topic-teaser";
 import { WhyChooseUs } from "@/components/sections/why-choose-us";
@@ -96,7 +97,7 @@ export default function Home() {
       <JsonLd data={organizationJsonLd} />
 
       <HomeHero />
-
+      <TrustStrip />
       <StatsBar stats={STATS} />
 
       <FeaturedProducts products={FEATURED_PRODUCTS} priority />

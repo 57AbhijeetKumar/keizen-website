@@ -13,7 +13,7 @@ export function Logo() {
         alt="Kaizen Laser and Automation"
         width={592}
         height={200}
-        className="h-7 w-auto"
+        className="h-10 w-auto"
         priority
       />
     </Link>
