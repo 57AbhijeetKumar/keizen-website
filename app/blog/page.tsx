@@ -22,6 +22,7 @@ export default async function BlogPage() {
         title="Notes on laser marking & traceability"
         description="Practical articles for manufacturers evaluating or running laser systems."
         breadcrumbs={[{ label: "Blog", href: "/blog" }]}
+        image="/images/real/machine-1.webp"
       />
 
       <section className="container-page py-16 sm:py-20">

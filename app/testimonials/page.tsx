@@ -22,6 +22,7 @@ export default async function TestimonialsPage() {
         title="What our customers say"
         description="We're collecting verified customer feedback — real quotes will appear here as they come in."
         breadcrumbs={[{ label: "Testimonials", href: "/testimonials" }]}
+        image="/images/real/installs/install-mercury-customer.jpg"
       />
 
       <section className="container-page py-16 sm:py-20">

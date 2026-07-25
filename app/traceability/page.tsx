@@ -85,6 +85,7 @@ export default async function TraceabilityPage() {
         title="One system from inward material to dispatch — no gaps."
         description="KAI-TRACK integrates laser-marked codes, line PLCs, third-party scanners and your ERP into a single traceability platform. Not just a machine that marks a part — a system that proves every part was marked, verified and recorded correctly."
         breadcrumbs={[{ label: "Traceability", href: "/traceability" }]}
+        image="/images/real/installs/install-mercury-customer.jpg"
       />
 
       <section className="container-page py-16 sm:py-20">
@@ -97,7 +98,7 @@ export default async function TraceabilityPage() {
         </div>
       </section>
 
-      <section className="bg-muted/40 py-16 sm:py-20">
+      <section className="bg-surface-2 border-y border-border py-16 sm:py-20">
         <div className="container-page">
           <AnimatedSection className="mx-auto max-w-3xl text-center">
             <h2 className="text-section font-heading font-semibold">KAI-TRACK Software Platform</h2>

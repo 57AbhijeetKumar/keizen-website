@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { CheckCircle, HandCoins, LifeBuoy, Lightbulb, ShieldCheck, Sparkles, Truck } from "lucide-react";
 import { PageHero } from "@/components/sections/page-hero";
+import { ParallaxBanner } from "@/components/sections/parallax-banner";
 import { ValueProps } from "@/components/sections/value-props";
 import { CtaBanner } from "@/components/sections/cta-banner";
 import { AnimatedSection } from "@/components/shared/animated-section";
@@ -85,6 +86,7 @@ export default function AboutPage() {
         title="Indian-made laser systems for Indian production lines"
         description="Kaizen Laser and Automation designs and manufactures industrial laser marking, engraving, welding, cutting and traceability systems in Noida, UP — proudly Made in India, serving Automotive, Electronics, Pharma and Industrial sectors nationwide."
         breadcrumbs={[{ label: "About", href: "/about" }]}
+        image="/images/real/exhibition-booth.jpg"
       />
 
       {/* Who we are */}
@@ -180,6 +182,14 @@ export default function AboutPage() {
           <ValueProps items={VALUES} />
         </div>
       </section>
+
+      <ParallaxBanner
+        image="/images/real/team-machines.jpg"
+        tagline="Built in Noida. Running across India."
+        description="Every Kaizen machine is assembled, tested and calibrated at our Sector-63 facility before it ships. The same team that builds it installs it at your line and supports it for the life of the machine."
+        overlay="darker"
+        align="center"
+      />
 
       {/* Full Range */}
       <section className="container-page py-16 sm:py-20 border-t border-border">

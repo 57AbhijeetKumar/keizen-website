@@ -26,6 +26,7 @@ export default function ContactPage() {
         title="Get a quote within 24 hours."
         description="Tell us your application, material, part size and production volume. Our team responds the same business day — usually faster. No obligation, no sales pressure."
         breadcrumbs={[{ label: "Contact", href: "/contact" }]}
+        image="/images/real/installs/install-spm-customer.jpg"
       />
 
       {/* Likely still above-the-fold right after PageHero — see PageHero for why this isn't AnimatedSection. */}

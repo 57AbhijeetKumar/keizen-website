@@ -8,7 +8,7 @@ export interface BreadcrumbItem {
 }
 
 /** Renders both the visible trail and matching BreadcrumbList JSON-LD. */
-export function Breadcrumbs({ items }: { items: BreadcrumbItem[] }) {
+export function Breadcrumbs({ items, className }: { items: BreadcrumbItem[]; className?: string }) {
   const trail = [{ label: "Home", href: "/" }, ...items];
 
   const jsonLd = {
@@ -25,7 +25,7 @@ export function Breadcrumbs({ items }: { items: BreadcrumbItem[] }) {
   return (
     <nav aria-label="Breadcrumb">
       <JsonLd data={jsonLd} />
-      <ol className="flex flex-wrap items-center gap-1.5 text-sm text-muted-foreground">
+      <ol className={`flex flex-wrap items-center gap-1.5 text-sm text-muted-foreground ${className ?? ""}`}>
         {trail.map((item, index) => {
           const isLast = index === trail.length - 1;
           return (

@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/sections/page-hero";
 import { GalleryGrid } from "@/components/content/gallery-grid";
+import { CtaBanner } from "@/components/sections/cta-banner";
+import { AnimatedSection } from "@/components/shared/animated-section";
 import { buildMetadata } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = buildMetadata({
@@ -41,6 +43,15 @@ const JIG_IMAGES = [
   { url: "/images/real/jigs/jig-3.webp", alt: "Kaizen jig and fixture — green clamping system" },
 ];
 
+function SectionHeading({ children }: { children: React.ReactNode }) {
+  return (
+    <AnimatedSection className="mb-8">
+      <div className="mb-3 h-1 w-12 rounded-full bg-accent" />
+      <h2 className="text-section font-heading font-semibold">{children}</h2>
+    </AnimatedSection>
+  );
+}
+
 export default function GalleryPage() {
   return (
     <main className="flex-1">
@@ -49,32 +60,46 @@ export default function GalleryPage() {
         title="Machines, installations and real marking samples"
         description="Real photos from Kaizen Laser's manufacturing unit, customer installations, and marking output across industries."
         breadcrumbs={[{ label: "Gallery", href: "/gallery" }]}
+        image="/images/real/install-4.webp"
       />
 
       <section className="container-page py-16 sm:py-20">
-        <h2 className="text-section font-heading font-semibold mb-8">Customer Installations</h2>
+        <SectionHeading>Customer Installations</SectionHeading>
         <GalleryGrid images={INSTALL_IMAGES} />
       </section>
 
-      <section className="container-page py-16 sm:py-20 border-t border-border">
-        <h2 className="text-section font-heading font-semibold mb-8">Marking Samples</h2>
-        <GalleryGrid images={MARKING_IMAGES} />
+      <section className="border-y border-border bg-surface-2">
+        <div className="container-page py-16 sm:py-20">
+          <SectionHeading>Marking Samples</SectionHeading>
+          <GalleryGrid images={MARKING_IMAGES} />
+        </div>
       </section>
 
-      <section className="container-page py-16 sm:py-20 border-t border-border">
-        <h2 className="text-section font-heading font-semibold mb-8">Our Workshop & Dispatch</h2>
+      <section className="container-page py-16 sm:py-20">
+        <SectionHeading>Our Workshop &amp; Dispatch</SectionHeading>
         <GalleryGrid images={WORKSHOP_IMAGES} />
       </section>
 
-      <section className="container-page py-16 sm:py-20 border-t border-border">
-        <h2 className="text-section font-heading font-semibold mb-8">Material Handling Conveyors</h2>
-        <GalleryGrid images={CONVEYOR_IMAGES} />
+      <section className="border-y border-border bg-surface-2">
+        <div className="container-page py-16 sm:py-20">
+          <SectionHeading>Material Handling Conveyors</SectionHeading>
+          <GalleryGrid images={CONVEYOR_IMAGES} />
+        </div>
       </section>
 
-      <section className="container-page py-16 sm:py-20 border-t border-border">
-        <h2 className="text-section font-heading font-semibold mb-8">Jigs &amp; Fixtures</h2>
+      <section className="container-page py-16 sm:py-20">
+        <SectionHeading>Jigs &amp; Fixtures</SectionHeading>
         <GalleryGrid images={JIG_IMAGES} />
       </section>
+
+      <CtaBanner
+        heading="Want to see a live demonstration?"
+        description="Visit our Noida facility or request a video demo — our engineers will run your material through the machine and show you the output."
+        primaryHref="/contact"
+        primaryLabel="Request a Demo"
+        secondaryHref="/products"
+        secondaryLabel="Browse Our Range"
+      />
     </main>
   );
 }

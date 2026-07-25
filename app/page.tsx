@@ -3,6 +3,7 @@ import { Award, Cpu, Gauge, HandCoins, LifeBuoy, ShieldCheck } from "lucide-reac
 import { HomeHero } from "@/components/sections/home-hero";
 import { StatsBar } from "@/components/sections/stats-bar";
 import { TrustStrip } from "@/components/sections/trust-strip";
+import { ParallaxBanner } from "@/components/sections/parallax-banner";
 import { FeaturedProducts } from "@/components/sections/featured-products";
 import { TopicTeaser } from "@/components/sections/topic-teaser";
 import { WhyChooseUs } from "@/components/sections/why-choose-us";
@@ -102,6 +103,14 @@ export default function Home() {
 
       <FeaturedProducts products={FEATURED_PRODUCTS} priority />
 
+      <ParallaxBanner
+        image="/images/real/install-4.webp"
+        tagline="Mark Permanently. Trace Completely."
+        description="Every part that leaves a Kaizen-equipped line carries a permanent mark — readable, scannable and traceable for the life of the product. From standalone workstations to fully automated inline systems."
+        cta={{ label: "View Our Range", href: "/products" }}
+        align="center"
+      />
+
       <TopicTeaser
         heading="Applications"
         description="Marking, engraving, welding, cutting and cleaning — one manufacturer, every process."
@@ -122,6 +131,15 @@ export default function Home() {
         heading="Why manufacturers choose Kaizen"
         description="A laser system is only as good as its source, its controls, its safety, and the team behind it."
         items={WHY_CHOOSE_US_ITEMS}
+      />
+
+      <ParallaxBanner
+        image="/images/real/team-machines.jpg"
+        tagline="500+ Machines Installed. Pan-India Service."
+        description="From our Noida manufacturing unit to your production floor — we install, commission and support every machine we build. Service engineers across Delhi-NCR, Pune, Bengaluru, Chennai and Tata Nagar."
+        cta={{ label: "Talk to Our Team", href: "/contact" }}
+        overlay="darker"
+        align="center"
       />
 
       <CtaBanner

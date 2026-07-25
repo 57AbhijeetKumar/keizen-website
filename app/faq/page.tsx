@@ -22,6 +22,7 @@ export default async function FaqPage() {
         title="Frequently asked questions"
         description="Common questions about our machines, safety, integration and support."
         breadcrumbs={[{ label: "FAQ", href: "/faq" }]}
+        image="/images/real/install-3.webp"
       />
 
       <section className="container-page py-16 sm:py-20">

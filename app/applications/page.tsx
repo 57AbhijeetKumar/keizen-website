@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/sections/page-hero";
 import { TopicCard } from "@/components/content/topic-card";
 import { StaggerGrid, StaggerItem } from "@/components/shared/stagger-grid";
+import { CtaBanner } from "@/components/sections/cta-banner";
 import { cms } from "@/lib/cms";
 import { buildMetadata } from "@/lib/seo/metadata";
 
@@ -22,6 +23,7 @@ export default async function ApplicationsPage() {
         title="One platform, many processes"
         description="From permanent traceability codes to structural welding — see which process fits your part."
         breadcrumbs={[{ label: "Applications", href: "/applications" }]}
+        image="/images/real/machine-2.webp"
       />
 
       <section className="container-page py-16 sm:py-20">
@@ -39,6 +41,15 @@ export default async function ApplicationsPage() {
           ))}
         </StaggerGrid>
       </section>
+
+      <CtaBanner
+        heading="Not sure which process fits your part?"
+        description="Share your material, part geometry and marking requirement — our engineers will confirm the right process and machine within 24 hours."
+        primaryHref="/contact"
+        primaryLabel="Ask Our Engineers"
+        secondaryHref="/products"
+        secondaryLabel="Browse All Machines"
+      />
     </main>
   );
 }

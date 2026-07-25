@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/sections/page-hero";
 import { TopicCard } from "@/components/content/topic-card";
 import { StaggerGrid, StaggerItem } from "@/components/shared/stagger-grid";
+import { CtaBanner } from "@/components/sections/cta-banner";
 import { cms } from "@/lib/cms";
 import { buildMetadata } from "@/lib/seo/metadata";
 
@@ -22,6 +23,7 @@ export default async function IndustriesPage() {
         title="Built for the tolerances regulated production demands"
         description="From automotive VIN marking to UDI-compliant medical device traceability."
         breadcrumbs={[{ label: "Industries", href: "/industries" }]}
+        image="/images/real/install-5.webp"
       />
 
       <section className="container-page py-16 sm:py-20">
@@ -39,6 +41,15 @@ export default async function IndustriesPage() {
           ))}
         </StaggerGrid>
       </section>
+
+      <CtaBanner
+        heading="Find the right machine for your industry."
+        description="Tell us your material, compliance requirement and production volume — we'll recommend the right system within 24 hours."
+        primaryHref="/contact"
+        primaryLabel="Talk to a Specialist"
+        secondaryHref="/products"
+        secondaryLabel="Browse All Machines"
+      />
     </main>
   );
 }

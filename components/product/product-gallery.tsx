@@ -23,7 +23,7 @@ export function ProductGallery({ images }: { images: MediaAsset[] }) {
       <button
         type="button"
         onClick={() => setLightboxOpen(true)}
-        className="group relative aspect-square overflow-hidden rounded-2xl border border-border bg-zinc-950"
+        className="group relative aspect-square overflow-hidden rounded-2xl border border-border bg-white"
         aria-label={`Open full-size image: ${active.alt}`}
       >
         <Image

@@ -5,6 +5,14 @@ import { CtaBanner } from "@/components/sections/cta-banner";
 import { cms } from "@/lib/cms";
 import { buildMetadata } from "@/lib/seo/metadata";
 
+const SERIES_INFO: Record<string, string> = {
+  "kaizen-standard-series": "Fiber, UV and CO₂ workstations — the right laser source for every material, from steel to glass to plastic.",
+  "mercury-series": "Fully enclosed safety cabinet with poke-yoke, door interlock and KAI-TRACK traceability built in — the automotive production standard.",
+  "jupiter-series": "Compact inline and robotic-integration laser for automated lines where cycle time, footprint and throughput all matter.",
+  "mars-series": "Industrial dot peen for deep, permanent marks on metal — no consumables, no laser hazard zone, no PPE required.",
+  "katashi-series": "Laser welding, cutting and cleaning systems for structural and precision joining applications.",
+};
+
 export const metadata: Metadata = buildMetadata({
   title: "Laser Marking, Engraving, Welding & Cutting Machines | Kaizen Laser",
   description:
@@ -25,6 +33,7 @@ export default async function ProductsPage() {
         title="Laser systems for every stage of production"
         description="From entry-level marking to industrial welding and cutting — every machine ships with PLC-based control and on-site installation."
         breadcrumbs={[{ label: "Products", href: "/products" }]}
+        image="/images/real/machine-2.webp"
       />
 
       <div className="container-page flex flex-col gap-16 py-16">
@@ -43,9 +52,14 @@ export default async function ProductsPage() {
 
             if (groupProducts.length === 0) return null;
 
+            const seriesDesc = SERIES_INFO[group.slug];
             return (
               <section key={group.slug}>
+                <div className="mb-3 h-1 w-12 rounded-full bg-accent" />
                 <h2 className="text-section font-heading font-semibold">{group.name}</h2>
+                {seriesDesc && (
+                  <p className="mt-2 max-w-2xl text-muted-foreground">{seriesDesc}</p>
+                )}
                 <div className="mt-6">
                   <ProductGrid products={groupProducts} priority={groupIndex === 0} />
                 </div>

@@ -19,6 +19,7 @@ export default function DownloadsPage() {
         title="Brochures & datasheets"
         description="Download our company brochure below, or request a machine-specific specification sheet and our team will email it directly."
         breadcrumbs={[{ label: "Downloads", href: "/downloads" }]}
+        image="/images/real/install-2.webp"
       />
 
       <section className="container-page flex flex-col gap-10 py-16 sm:py-20">
