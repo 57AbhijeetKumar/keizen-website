@@ -122,7 +122,7 @@ export function HomeHero() {
         </div>
 
         <div className="relative mx-auto aspect-square w-full max-w-md">
-          <div className="relative h-full w-full overflow-hidden rounded-3xl border border-border bg-zinc-950">
+          <div className="relative h-full w-full overflow-hidden rounded-3xl border border-border bg-surface-2">
             <AnimatePresence mode="wait" initial={false}>
               <motion.div
                 key={index}

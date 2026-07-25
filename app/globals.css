@@ -5,32 +5,31 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
-  Design system — Modern Industrial.
-  Dark graphite base with a "laser teal" brand accent and a sparing amber
-  signal color for numerals/badges. One palette, no light/dark toggle: this
-  is a deliberate brand choice for a premium industrial B2B site.
+  Design system — Clean Professional.
+  White base with deep blue brand accent and amber signal color.
+  Light, trustworthy, B2B-grade palette.
 */
 :root {
-  --background: #06090a;
-  --foreground: #f2f5f4;
-  --surface: #0e1416;
-  --surface-2: #141b1e;
-  --accent: #22e6b8;
-  --accent-2: #14b894;
-  --signal: #f2b84b;
-  --muted: #8fa09c;
-  --border: #1e2a2d;
+  --background: #ffffff;
+  --foreground: #0f172a;
+  --surface: #f8fafc;
+  --surface-2: #f1f5f9;
+  --accent: #1d4ed8;
+  --accent-2: #1e40af;
+  --signal: #f59e0b;
+  --muted: #64748b;
+  --border: #e2e8f0;
 
   --card: var(--surface);
   --card-foreground: var(--foreground);
-  --popover: var(--surface-2);
+  --popover: #ffffff;
   --popover-foreground: var(--foreground);
   --primary: var(--accent);
-  --primary-foreground: #04120e;
+  --primary-foreground: #ffffff;
   --secondary: var(--surface-2);
   --secondary-foreground: var(--foreground);
   --muted-foreground: var(--muted);
-  --accent-foreground: #04120e;
+  --accent-foreground: #ffffff;
   --destructive: oklch(0.704 0.191 22.216);
   --input: var(--surface-2);
   --ring: var(--accent);
@@ -43,7 +42,7 @@
   --sidebar: var(--surface);
   --sidebar-foreground: var(--foreground);
   --sidebar-primary: var(--accent);
-  --sidebar-primary-foreground: #04120e;
+  --sidebar-primary-foreground: #ffffff;
   --sidebar-accent: var(--surface-2);
   --sidebar-accent-foreground: var(--foreground);
   --sidebar-border: var(--border);
@@ -154,12 +153,12 @@
   .bg-gradient-mesh {
     background-image: radial-gradient(
         60% 50% at 15% 0%,
-        color-mix(in oklch, var(--accent) 18%, transparent),
+        color-mix(in oklch, var(--accent) 7%, transparent),
         transparent 70%
       ),
       radial-gradient(
         50% 40% at 85% 20%,
-        color-mix(in oklch, var(--signal) 10%, transparent),
+        color-mix(in oklch, var(--signal) 5%, transparent),
         transparent 70%
       ),
       var(--background);
@@ -167,10 +166,10 @@
 
   /* Glassmorphism — reserved for sticky/floating chrome (navbar, modals), not body content. */
   .glass-panel {
-    background: color-mix(in oklch, var(--surface) 55%, transparent);
+    background: color-mix(in oklch, white 85%, transparent);
     backdrop-filter: blur(16px) saturate(140%);
     -webkit-backdrop-filter: blur(16px) saturate(140%);
-    border: 1px solid color-mix(in oklch, var(--border) 70%, transparent);
+    border: 1px solid color-mix(in oklch, var(--border) 90%, transparent);
   }
 
   .shadow-glow-accent {
