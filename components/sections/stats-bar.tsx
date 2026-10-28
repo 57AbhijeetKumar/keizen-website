@@ -67,10 +67,10 @@ function StatItem({ stat, triggered, delay }: StatItemProps) {
 
   return (
     <div className="text-center">
-      <p className="text-3xl font-heading font-bold text-accent tabular-nums">
+      <p className="text-3xl font-heading font-bold text-white tabular-nums sm:text-4xl">
         {display}
       </p>
-      <p className="mt-1 text-sm text-muted-foreground">{stat.label}</p>
+      <p className="mt-1 text-sm text-white/60">{stat.label}</p>
     </div>
   );
 }
@@ -98,7 +98,7 @@ export function StatsBar({ stats }: { stats: Stat[] }) {
   }, []);
 
   return (
-    <section ref={ref} className="border-b border-border bg-surface-2">
+    <section ref={ref} className="border-t-2 border-accent bg-charcoal-2">
       <div className="container-page grid grid-cols-2 gap-8 py-10 sm:grid-cols-4">
         {stats.map((stat, i) => (
           <StatItem

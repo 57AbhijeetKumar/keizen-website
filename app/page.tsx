@@ -1,21 +1,15 @@
 import type { Metadata } from "next";
-import { Award, Cpu, Gauge, HandCoins, LifeBuoy, ShieldCheck } from "lucide-react";
+import { Award, LifeBuoy, ShieldCheck, Gauge } from "lucide-react";
 import { HomeHero } from "@/components/sections/home-hero";
 import { StatsBar } from "@/components/sections/stats-bar";
-import { TrustStrip } from "@/components/sections/trust-strip";
-import { ParallaxBanner } from "@/components/sections/parallax-banner";
 import { FeaturedProducts } from "@/components/sections/featured-products";
 import { TopicTeaser } from "@/components/sections/topic-teaser";
 import { WhyChooseUs } from "@/components/sections/why-choose-us";
 import { CtaBanner } from "@/components/sections/cta-banner";
-import { FaqAccordion } from "@/components/sections/faq-accordion";
-import { AnimatedSection } from "@/components/shared/animated-section";
 import { JsonLd } from "@/components/shared/json-ld";
 import {
-  FEATURED_APPLICATIONS,
   FEATURED_INDUSTRIES,
   FEATURED_PRODUCTS,
-  HOME_FAQS,
 } from "@/lib/cms/local/home-content";
 import { siteConfig, siteMeta } from "@/lib/site-config";
 import { buildMetadata } from "@/lib/seo/metadata";
@@ -37,39 +31,27 @@ const STATS = [
 const WHY_CHOOSE_US_ITEMS = [
   {
     icon: Award,
-    title: "German & Singaporean Laser Modules",
+    title: "Proven laser sources",
     description:
-      "We don't cut corners on the laser source. Pluto and Mercury run German-standard modules; Venus runs a Singaporean-standard module — both with documented 50,000+ hour rated lifespans and proven in Indian production conditions.",
+      "German- and Singaporean-standard laser modules rated for 50,000+ hours of production use.",
   },
   {
     icon: ShieldCheck,
-    title: "Fully Enclosed Class 1 Safety",
+    title: "Class 1 safe, PLC controlled",
     description:
-      "Every standard enclosed machine meets Class 1 laser safety requirements. Your operators work without laser PPE, your HSE team isn't called, and your production line stays compliant.",
-  },
-  {
-    icon: Cpu,
-    title: "PLC Control — Not PC Dependent",
-    description:
-      "An industrial PLC runs the machine, not a laptop sitting on the production floor. Your line keeps marking even when the office network is down or an operator's PC is restarted.",
+      "Fully enclosed machines run by an industrial PLC — operators need no laser PPE, and no shop-floor PC is required.",
   },
   {
     icon: Gauge,
-    title: "Poke-Yoke & Traceability Ready",
+    title: "Poke-yoke & traceability",
     description:
-      "Mercury and KAI-TRACK are engineered for automotive-level error-proofing — part-presence sensor, door interlock, scan-verify-mark cycle. One system covers safety, marking and traceability.",
+      "Part-presence sensing, door interlock and a scan-verify-mark cycle with KAI-TRACK software.",
   },
   {
     icon: LifeBuoy,
-    title: "Service Across India",
+    title: "Service across India",
     description:
-      "Service engineers in Delhi-NCR, Pune, Bengaluru, Chennai and Tata Nagar. Same-day response for critical breakdowns — because a stalled production line costs more than the machine.",
-  },
-  {
-    icon: HandCoins,
-    title: "Made in India, Priced for India",
-    description:
-      "We manufacture in Noida and pass that cost advantage to you. Imported laser quality at a fraction of the import price — no currency risk, no long freight lead times, no overseas warranty headaches.",
+      "Engineers in Delhi-NCR, Pune, Bengaluru, Chennai and Tata Nagar, with same-day response for breakdowns.",
   },
 ];
 
@@ -98,72 +80,33 @@ export default function Home() {
       <JsonLd data={organizationJsonLd} />
 
       <HomeHero />
-      <TrustStrip />
       <StatsBar stats={STATS} />
 
       <FeaturedProducts products={FEATURED_PRODUCTS} priority />
 
-      <ParallaxBanner
-        image="/images/real/install-4.webp"
-        tagline="Mark Permanently. Trace Completely."
-        description="Every part that leaves a Kaizen-equipped line carries a permanent mark — readable, scannable and traceable for the life of the product. From standalone workstations to fully automated inline systems."
-        cta={{ label: "View Our Range", href: "/products" }}
-        align="center"
-      />
-
-      <TopicTeaser
-        heading="Applications"
-        description="Marking, engraving, welding, cutting and cleaning — one manufacturer, every process."
-        items={FEATURED_APPLICATIONS}
-        hrefBase="/applications"
-        viewAllHref="/applications"
-      />
-
-      <TopicTeaser
-        heading="Industries We Serve"
-        description="Built for the tolerances, traceability requirements and compliance standards of regulated production."
-        items={FEATURED_INDUSTRIES}
-        hrefBase="/industries"
-        viewAllHref="/industries"
-      />
+      <div className="bg-surface">
+        <TopicTeaser
+          heading="Solutions by industry"
+          description="Built for the tolerances, traceability and compliance standards of regulated production."
+          items={FEATURED_INDUSTRIES}
+          hrefBase="/industries"
+          viewAllHref="/industries"
+        />
+      </div>
 
       <WhyChooseUs
         heading="Why manufacturers choose Kaizen"
-        description="A laser system is only as good as its source, its controls, its safety, and the team behind it."
         items={WHY_CHOOSE_US_ITEMS}
-      />
-
-      <ParallaxBanner
-        image="/images/real/team-machines.jpg"
-        tagline="500+ Machines Installed. Pan-India Service."
-        description="From our Noida manufacturing unit to your production floor — we install, commission and support every machine we build. Service engineers across Delhi-NCR, Pune, Bengaluru, Chennai and Tata Nagar."
-        cta={{ label: "Talk to Our Team", href: "/contact" }}
-        overlay="darker"
-        align="center"
       />
 
       <CtaBanner
         heading="Get the right machine for your application."
-        description="Send us your part material, size and production volume — we'll recommend the right system, explain the specs, and give you a price within 24 hours. No obligation."
+        description="Send us your part material, size and production volume. We'll recommend a system and send a quote within 24 hours."
         primaryHref="/contact"
-        primaryLabel="Request a Free Consultation"
+        primaryLabel="Get a Quote"
         secondaryHref="/downloads"
-        secondaryLabel="Download Product Catalog"
+        secondaryLabel="Download Catalogue"
       />
-
-      <section className="container-page py-16 sm:py-20">
-        <AnimatedSection className="mx-auto max-w-2xl text-center">
-          <h2 className="text-section font-heading font-semibold">
-            Frequently asked questions
-          </h2>
-          <p className="mt-2 text-muted-foreground">
-            Common questions from buyers about our machines, safety, integration and support.
-          </p>
-        </AnimatedSection>
-        <div className="mx-auto mt-8 max-w-2xl">
-          <FaqAccordion items={HOME_FAQS} />
-        </div>
-      </section>
     </main>
   );
 }

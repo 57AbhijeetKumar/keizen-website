@@ -16,7 +16,7 @@ export default async function Image() {
           flexDirection: "column",
           justifyContent: "center",
           padding: "80px",
-          background: "#06090a",
+          background: "#2f343a",
           color: "#f2f5f4",
           fontFamily: "sans-serif",
         }}
@@ -30,8 +30,8 @@ export default async function Image() {
               width: 64,
               height: 64,
               borderRadius: 16,
-              background: "#22e6b8",
-              color: "#04120e",
+              background: "#f47920",
+              color: "#ffffff",
               fontSize: 36,
               fontWeight: 700,
             }}
@@ -43,7 +43,7 @@ export default async function Image() {
         <div style={{ marginTop: 48, fontSize: 56, fontWeight: 700, maxWidth: 900, lineHeight: 1.15 }}>
           Industrial Laser Marking, Engraving &amp; Traceability Systems
         </div>
-        <div style={{ marginTop: 24, fontSize: 28, color: "#8fa09c", maxWidth: 800 }}>
+        <div style={{ marginTop: 24, fontSize: 28, color: "#c5cad0", maxWidth: 800 }}>
           {siteMeta.description}
         </div>
       </div>

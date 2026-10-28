@@ -29,7 +29,7 @@ export function PageHero({
   image = "/images/real/machine-1.webp",
 }: PageHeroProps) {
   return (
-    <section className="relative overflow-hidden border-b border-border bg-[#1c1a18]">
+    <section className="relative overflow-hidden border-b border-border bg-charcoal">
       {/* Machine image — occupies right half on desktop, full-bleed on mobile */}
       <div className="absolute inset-y-0 right-0 w-full lg:w-[48%]">
         <Image
@@ -42,9 +42,9 @@ export function PageHero({
           sizes="(max-width: 1024px) 100vw, 50vw"
         />
         {/* Mobile: dark overlay so text is always legible */}
-        <div className="absolute inset-0 bg-[#1c1a18]/85 lg:hidden" />
+        <div className="absolute inset-0 bg-charcoal/85 lg:hidden" />
         {/* Desktop: blend the left edge of the image into the charcoal background */}
-        <div className="absolute inset-y-0 left-0 hidden w-48 bg-gradient-to-r from-[#1c1a18] to-transparent lg:block" />
+        <div className="absolute inset-y-0 left-0 hidden w-48 bg-gradient-to-r from-charcoal to-transparent lg:block" />
       </div>
 
       {/* Content — constrained to left half on desktop */}

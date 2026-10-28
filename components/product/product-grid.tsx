@@ -27,7 +27,7 @@ export function ProductGrid({ products, priority = false }: ProductGridProps) {
   }
 
   return (
-    <StaggerGrid className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+    <StaggerGrid className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {products.map((product, index) => (
         <StaggerItem key={product.slug}>
           <ProductCard {...product} priority={priority && index < 4} />

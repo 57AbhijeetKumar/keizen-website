@@ -23,10 +23,10 @@ export function CtaBanner({
 }: CtaBannerProps) {
   return (
     <section className="container-page py-16">
-      <AnimatedSection className="bg-gradient-mesh relative overflow-hidden rounded-3xl border border-border px-8 py-14 text-center sm:px-16">
-        <h2 className="text-display font-heading font-semibold">{heading}</h2>
+      <AnimatedSection className="relative overflow-hidden rounded-2xl bg-charcoal px-8 py-14 text-center sm:px-16">
+        <h2 className="text-display font-heading font-semibold text-white">{heading}</h2>
         {description ? (
-          <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
+          <p className="mx-auto mt-4 max-w-xl text-white/70">
             {description}
           </p>
         ) : null}
@@ -39,6 +39,7 @@ export function CtaBanner({
             <Button
               size="lg"
               variant="outline"
+              className="border-white/40 bg-transparent text-white hover:border-white hover:bg-white/10 hover:text-white"
               nativeButton={false}
               render={<Link href={secondaryHref} />}
             >

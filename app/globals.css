@@ -6,20 +6,25 @@
 
 /*
   Design system — Machine Brand.
-  White base with Kaizen machine orange accent (#f47920) extracted directly
-  from the KAIZEN logo on the physical machines. Charcoal text matches
-  the machine panel color. Warm surface tones echo the machine body grey.
+  Taken from the physical machines: charcoal frame (--charcoal), light grey
+  powder-coated panels (--surface / --surface-2), aluminium extrusion
+  (--border) and the safety-yellow door strips (--safety). Kaizen logo
+  orange (#f47920) is the single accent — reserved for buttons and key
+  highlights so it stays meaningful.
 */
 :root {
   --background: #ffffff;
-  --foreground: #1c1a18;
-  --surface: #fafaf9;
-  --surface-2: #f5f2ed;
+  --foreground: #1e2226;
+  --surface: #f5f6f7;
+  --surface-2: #e9ecef;
+  --charcoal: #2f343a;
+  --charcoal-2: #23272c;
   --accent: #f47920;
   --accent-2: #d4640f;
+  --safety: #f2b705;
   --signal: #2d6be4;
-  --muted: #78716c;
-  --border: #e5e2db;
+  --muted: #5b626b;
+  --border: #d9dde2;
 
   --card: var(--surface);
   --card-foreground: var(--foreground);
@@ -39,7 +44,7 @@
   --chart-3: var(--signal);
   --chart-4: oklch(0.556 0 0);
   --chart-5: oklch(0.371 0 0);
-  --radius: 0.75rem;
+  --radius: 0.5rem;
   --sidebar: var(--surface);
   --sidebar-foreground: var(--foreground);
   --sidebar-primary: var(--accent);
@@ -60,14 +65,17 @@
   --color-foreground: var(--foreground);
   --color-surface: var(--surface);
   --color-surface-2: var(--surface-2);
+  --color-charcoal: var(--charcoal);
+  --color-charcoal-2: var(--charcoal-2);
   --color-accent: var(--accent);
   --color-accent-2: var(--accent-2);
+  --color-safety: var(--safety);
   --color-signal: var(--signal);
   --color-muted: var(--muted);
   --color-border: var(--border);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-sora);
+  --font-heading: var(--font-geist-sans);
 
   --container-page: 80rem;
 
