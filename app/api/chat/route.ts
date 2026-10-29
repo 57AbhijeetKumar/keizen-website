@@ -1,7 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
 import OpenAI from "openai";
 
-const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+// Created on first request, not at import: the build imports this module
+// with no OPENAI_API_KEY set (on Cloudflare it's a runtime-only secret), and
+// the SDK throws on a missing key.
+let client: OpenAI | undefined;
 
 const SYSTEM_PROMPT = `You are a helpful sales assistant for Kaizen Laser and Automation, an Indian manufacturer of industrial laser marking, engraving, welding, cutting and traceability machines based in Noida, Uttar Pradesh.
 
@@ -141,6 +144,7 @@ export async function POST(req: NextRequest) {
   try {
     const { messages } = await req.json();
 
+    client ??= new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
     const stream = await client.chat.completions.create({
       model: "gpt-4o-mini",
       messages: [{ role: "system", content: SYSTEM_PROMPT }, ...messages],
