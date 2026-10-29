@@ -29,6 +29,13 @@ const nextConfig: NextConfig = {
         source: "/(.*)",
         headers: securityHeaders,
       },
+      {
+        // The workers.dev URL is a test/preview copy of the site — keep it
+        // out of search results so it can't compete with the real domain.
+        source: "/(.*)",
+        has: [{ type: "host", value: ".*\\.workers\\.dev" }],
+        headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
+      },
     ];
   },
 };
