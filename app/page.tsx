@@ -82,7 +82,7 @@ export default function Home() {
       <HomeHero />
       <StatsBar stats={STATS} />
 
-      <FeaturedProducts products={FEATURED_PRODUCTS} priority />
+      <FeaturedProducts products={FEATURED_PRODUCTS} />
 
       <div className="bg-surface">
         <TopicTeaser

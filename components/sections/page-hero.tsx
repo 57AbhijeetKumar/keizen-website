@@ -37,7 +37,7 @@ export function PageHero({
           alt=""
           fill
           className="object-cover object-center"
-          priority
+          preload
           aria-hidden="true"
           sizes="(max-width: 1024px) 100vw, 50vw"
         />

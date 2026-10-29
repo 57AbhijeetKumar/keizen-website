@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
@@ -19,10 +20,11 @@ export function ParallaxBanner({
   align = "center",
 }: ParallaxBannerProps) {
   return (
-    <section
-      className="parallax-bg relative py-24 sm:py-32"
-      style={{ backgroundImage: `url(${image})`, backgroundPosition: "center", backgroundSize: "cover" }}
-    >
+    <section className="relative overflow-hidden py-24 sm:py-32">
+      {/* Optimised, lazy-loaded image instead of a fixed CSS background, which
+          bypassed resizing and forced a repaint on every scroll frame. */}
+      <Image src={image} alt="" fill sizes="100vw" className="object-cover" aria-hidden="true" />
+
       {/* Overlay */}
       <div
         className={`absolute inset-0 ${

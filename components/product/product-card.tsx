@@ -10,7 +10,7 @@ interface ProductCardProps {
   tagline: string;
   heroImage: MediaAsset;
   seriesName?: string;
-  /** Set only for cards rendered in the first viewport (e.g. homepage's first grid row). */
+  /** Set only for cards in the first viewport, so they load without waiting for scroll. */
   priority?: boolean;
 }
 
@@ -35,7 +35,7 @@ export function ProductCard({
           fill
           sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
           className="object-cover transition-premium group-hover:scale-105"
-          priority={priority}
+          loading={priority ? "eager" : "lazy"}
         />
       </div>
       <div className="flex flex-1 flex-col gap-2 p-5">

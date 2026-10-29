@@ -11,10 +11,10 @@ export function Logo() {
       <Image
         src="/logo.png"
         alt="Kaizen Laser and Automation"
-        width={592}
-        height={200}
+        width={118}
+        height={40}
         className="h-10 w-auto"
-        priority
+        preload
       />
     </Link>
   );

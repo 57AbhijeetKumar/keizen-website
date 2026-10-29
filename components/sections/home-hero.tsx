@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { preload } from "react-dom";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -9,13 +10,15 @@ const HERO_IMAGE = {
 };
 
 /**
- * Optional background video. Keep it a short, silent 10–20s loop under
- * ~4 MB; the poster is its first frame, so the hero looks finished before
- * the video loads (and when it can't play). Set to null to use HERO_IMAGE.
+ * Optional background video. Keep it a short, silent 10–20s loop: `src` at
+ * 1080p (~1 MB) for desktop, `mobileSrc` at 720p (~0.5 MB) for phones. The
+ * poster is its first frame, so the hero looks finished before the video
+ * loads (and when it can't play). Set to null to use HERO_IMAGE.
  */
-const HERO_VIDEO: { src: string; poster: string } | null = {
+const HERO_VIDEO: { src: string; mobileSrc: string; poster: string } | null = {
   src: "/videos/hero.mp4",
-  poster: "/videos/hero-poster.jpg",
+  mobileSrc: "/videos/hero-720.mp4",
+  poster: "/videos/hero-poster.webp",
 };
 
 /**
@@ -23,13 +26,16 @@ const HERO_VIDEO: { src: string; poster: string } | null = {
  * supporting line, two actions. Server-rendered because it's the LCP element.
  */
 export function HomeHero() {
+  // The poster is the LCP image — fetch it alongside the HTML, not after the
+  // <video> element is parsed.
+  if (HERO_VIDEO) preload(HERO_VIDEO.poster, { as: "image", fetchPriority: "high" });
+
   return (
     <section className="relative overflow-hidden bg-charcoal">
       <div className="absolute inset-0">
         {HERO_VIDEO ? (
           <video
             className="h-full w-full object-cover opacity-60"
-            src={HERO_VIDEO.src}
             poster={HERO_VIDEO.poster}
             autoPlay
             muted
@@ -37,7 +43,11 @@ export function HomeHero() {
             playsInline
             preload="metadata"
             aria-hidden="true"
-          />
+          >
+            {/* Browsers that ignore `media` take the first source (desktop). */}
+            <source src={HERO_VIDEO.src} type="video/mp4" media="(min-width: 768px)" />
+            <source src={HERO_VIDEO.mobileSrc} type="video/mp4" />
+          </video>
         ) : (
           <Image
             src={HERO_IMAGE.url}
@@ -45,7 +55,7 @@ export function HomeHero() {
             fill
             className="object-cover object-center opacity-60"
             sizes="100vw"
-            priority
+            preload
           />
         )}
         {/* Charcoal fade from the left keeps the text legible over any footage */}

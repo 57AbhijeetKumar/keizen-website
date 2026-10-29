@@ -1,41 +1,16 @@
-"use client";
-
-import { motion, useReducedMotion } from "framer-motion";
 import type { ReactNode } from "react";
-import { fadeUp, staggerContainer } from "@/lib/motion";
+import { cn } from "@/lib/utils";
 
 /**
- * Cascading reveal for card grids: the container fades each child in with a
- * short stagger instead of the whole grid popping in at once. Pairs with
- * `StaggerItem` on each direct child. Same reduced-motion handling as
- * `AnimatedSection` — one consistent shape, only `initial`/`transition` vary.
+ * Card grid whose items each fade in as they scroll into view. Items reveal
+ * individually, so rows naturally cascade without a JS stagger. Pairs with
+ * `StaggerItem` on each direct child. Same CSS-only `.reveal` as
+ * `AnimatedSection`.
  */
 export function StaggerGrid({ children, className }: { children: ReactNode; className?: string }) {
-  const prefersReducedMotion = useReducedMotion();
-
-  return (
-    <motion.div
-      className={className}
-      initial={prefersReducedMotion ? "visible" : "hidden"}
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.05 }}
-      variants={staggerContainer()}
-    >
-      {children}
-    </motion.div>
-  );
+  return <div className={className}>{children}</div>;
 }
 
 export function StaggerItem({ children, className }: { children: ReactNode; className?: string }) {
-  const prefersReducedMotion = useReducedMotion();
-
-  return (
-    <motion.div
-      className={className}
-      variants={fadeUp}
-      transition={prefersReducedMotion ? { duration: 0 } : undefined}
-    >
-      {children}
-    </motion.div>
-  );
+  return <div className={cn("reveal", className)}>{children}</div>;
 }

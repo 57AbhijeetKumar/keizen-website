@@ -198,15 +198,30 @@
     padding-inline: 1.5rem;
   }
 
-  /* Parallax fixed background — background image stays fixed while content scrolls.
-     Disabled on touch devices (iOS Safari does not support background-attachment:fixed). */
-  .parallax-bg {
-    background-attachment: fixed;
-  }
-  @media (hover: none) and (pointer: coarse) {
-    .parallax-bg {
-      background-attachment: scroll;
+  /* Scroll reveal (AnimatedSection / StaggerItem). Scroll-driven CSS
+     animation: content is visible without JS, and browsers without
+     animation-timeline support just show it. Elements already on screen at
+     load are past their entry range, so they render fully visible. */
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      .reveal {
+        animation: reveal-up linear both;
+        animation-timeline: view();
+        animation-range: entry 0% entry 40%;
+      }
     }
+  }
+
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    translate: 0 24px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
   }
 }
 

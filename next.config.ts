@@ -18,6 +18,10 @@ const nextConfig: NextConfig = {
   devIndicators: false,
   images: {
     remotePatterns: [],
+    // Keep resized images cached for 31 days instead of the 4-hour default,
+    // so visitors rarely wait on a fresh resize. There's no way to purge
+    // this cache, so give a replaced image a new filename.
+    minimumCacheTTL: 2678400,
   },
   async headers() {
     return [

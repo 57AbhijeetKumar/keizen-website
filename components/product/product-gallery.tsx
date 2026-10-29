@@ -32,7 +32,7 @@ export function ProductGallery({ images }: { images: MediaAsset[] }) {
           fill
           sizes="(min-width: 1024px) 40vw, 90vw"
           className="object-contain transition-premium group-hover:scale-105"
-          priority
+          preload
         />
         <span className="absolute right-3 top-3 flex h-9 w-9 items-center justify-center rounded-full bg-background/70 text-foreground opacity-0 transition-premium group-hover:opacity-100">
           <Expand className="h-4 w-4" aria-hidden="true" />
@@ -56,6 +56,7 @@ export function ProductGallery({ images }: { images: MediaAsset[] }) {
                 src={image.url}
                 alt={image.alt}
                 fill
+                sizes="96px"
                 className="object-cover transition-premium group-hover:scale-105"
               />
             </button>

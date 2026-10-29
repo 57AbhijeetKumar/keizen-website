@@ -74,7 +74,8 @@ export default async function ApplicationDetailPage({
                 src={application.image.url}
                 alt={application.image.alt}
                 fill
-                priority
+                preload
+                sizes="(min-width: 1024px) 40vw, 100vw"
                 className="object-cover"
               />
             </div>
