@@ -21,5 +21,15 @@
   },
   "observability": {
     "enabled": true
-  }
+  },
+  // Serve on keizen-website.<account>.workers.dev, with per-branch preview URLs.
+  "workers_dev": true,
+  "preview_urls": true,
+  // Non-secret config lives here. OPENAI_API_KEY and LEADS_SHEET_WEBHOOK_URL
+  // are Secrets set in the dashboard — deploys never touch secrets.
+  "vars": {
+    "BROCHURE_DRIVE_FILE_ID": "1ES7KZ63XfOhalIrcKloHADhSp8i7f-X0"
+  },
+  // Don't wipe plain-text variables added in the dashboard on each deploy.
+  "keep_vars": true
 }
