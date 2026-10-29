@@ -31,57 +31,78 @@ function InlineText({ text }: { text: string }) {
   );
 }
 
-// Simple markdown renderer: bold, bullet lists, numbered lists, paragraphs
-function MarkdownMessage({ content }: { content: string }) {
-  const lines = content.split("\n");
-  const blocks: React.ReactNode[] = [];
-  const listBuffer: { ordered: boolean; items: string[] } = { ordered: false, items: [] };
+type Block =
+  | { kind: "p"; text: string }
+  | { kind: "heading"; text: string }
+  | { kind: "ul"; items: string[] }
+  | { kind: "ol"; items: string[] };
 
-  function flushList(key: number) {
-    if (listBuffer.items.length === 0) return;
-    const Tag = listBuffer.ordered ? "ol" : "ul";
-    blocks.push(
-      <Tag key={key} className={listBuffer.ordered ? "ml-4 mt-1 list-decimal space-y-0.5" : "ml-4 mt-1 list-disc space-y-0.5"}>
-        {listBuffer.items.map((item, i) => (
-          <li key={i} className="text-sm leading-relaxed">
-            <InlineText text={item} />
-          </li>
-        ))}
-      </Tag>
-    );
-    listBuffer.items = [];
+// Parses the small markdown subset the assistant is told to use: headings,
+// paragraphs, bullet and numbered lists. Consecutive items of the same list
+// type merge into one block, even across blank lines.
+function parseBlocks(content: string): Block[] {
+  const blocks: Block[] = [];
+
+  for (const line of content.split("\n")) {
+    const trimmed = line.trim();
+    if (!trimmed) continue;
+
+    const bullet = trimmed.match(/^[-•*]\s+(.+)/);
+    const ordered = trimmed.match(/^\d+[.)]\s+(.+)/);
+    const heading = trimmed.match(/^#{1,6}\s+(.+)/);
+    const last = blocks[blocks.length - 1];
+
+    if (bullet || ordered) {
+      const kind = bullet ? "ul" : "ol";
+      const item = (bullet ?? ordered)![1];
+      if (last && last.kind === kind) last.items.push(item);
+      else blocks.push({ kind, items: [item] });
+    } else if (heading) {
+      blocks.push({ kind: "heading", text: heading[1].replace(/\*\*/g, "") });
+    } else {
+      blocks.push({ kind: "p", text: trimmed });
+    }
   }
 
-  lines.forEach((line, idx) => {
-    const trimmed = line.trim();
+  return blocks;
+}
 
-    const bulletMatch = trimmed.match(/^[-•*]\s+(.+)/);
-    const orderedMatch = trimmed.match(/^\d+\.\s+(.+)/);
-
-    if (bulletMatch) {
-      if (listBuffer.ordered) { flushList(idx); listBuffer.ordered = false; }
-      listBuffer.items.push(bulletMatch[1]);
-    } else if (orderedMatch) {
-      if (!listBuffer.ordered && listBuffer.items.length > 0) flushList(idx);
-      listBuffer.ordered = true;
-      listBuffer.items.push(orderedMatch[1]);
-    } else {
-      flushList(idx);
-      if (trimmed === "") {
-        // skip extra blank lines between blocks
-      } else {
-        blocks.push(
-          <p key={idx} className="text-sm leading-relaxed">
-            <InlineText text={trimmed} />
-          </p>
+// Keys are block positions: while a reply streams in, blocks only ever grow
+// or get appended, so each block keeps its key and is updated in place.
+function MarkdownMessage({ content }: { content: string }) {
+  return (
+    <div className="flex flex-col gap-2">
+      {parseBlocks(content).map((block, i) => {
+        if (block.kind === "heading") {
+          return (
+            <p key={i} className="text-sm font-semibold text-foreground">
+              {block.text}
+            </p>
+          );
+        }
+        if (block.kind === "p") {
+          return (
+            <p key={i} className="text-sm leading-relaxed">
+              <InlineText text={block.text} />
+            </p>
+          );
+        }
+        const Tag = block.kind;
+        return (
+          <Tag
+            key={i}
+            className={`ml-4 space-y-1 ${block.kind === "ol" ? "list-decimal" : "list-disc"}`}
+          >
+            {block.items.map((item, j) => (
+              <li key={j} className="text-sm leading-relaxed">
+                <InlineText text={item} />
+              </li>
+            ))}
+          </Tag>
         );
-      }
-    }
-  });
-
-  flushList(lines.length);
-
-  return <div className="flex flex-col gap-1.5">{blocks}</div>;
+      })}
+    </div>
+  );
 }
 
 // Blinking cursor shown while streaming

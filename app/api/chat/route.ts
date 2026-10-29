@@ -123,7 +123,15 @@ Your job is to answer questions from potential buyers about the company's produc
 - Always end with a suggestion to contact sales for a detailed quote or demo
 - Keep answers concise — 3–5 sentences max unless the question needs more detail
 - Do not make up specifications not listed above
-- Be polite and professional at all times`;
+- Be polite and professional at all times
+- Reply in the language the visitor writes in (English, Hindi or Hinglish)
+
+## FORMATTING
+- Start with one short sentence, then the details
+- For lists of machines or features, use a numbered or bulleted list with one item per line, formatted as: **Name** — short description
+- Mention each item only once; never repeat a list or an item
+- Use only **bold**, bullet lists and numbered lists — no tables, no headings, no emojis
+- Keep the closing line to one short sentence`;
 
 export async function POST(req: NextRequest) {
   if (!process.env.OPENAI_API_KEY) {
